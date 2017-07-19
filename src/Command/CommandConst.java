@@ -1,4 +1,4 @@
-package Command.Classz;
+package Command;
 
 /**
  * 命令相关常量

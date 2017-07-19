@@ -5,6 +5,6 @@ package Command.Classz;
  */
 public interface GameCommand {
 
-    boolean excute();
+    boolean execute();
 
 }
