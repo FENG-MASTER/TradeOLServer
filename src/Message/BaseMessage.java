@@ -7,6 +7,9 @@ import java.io.Serializable;
  */
 public class BaseMessage implements Serializable {
 
+
+    private static final long serialVersionUID = 2777793869584338873L;
+
     private int ID;
 
     private byte[] data;

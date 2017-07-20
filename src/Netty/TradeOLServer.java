@@ -1,3 +1,6 @@
+package Netty;
+
+import Message.BaseMessage;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;
@@ -12,6 +15,8 @@ public class TradeOLServer {
     private static final int PORT=7766;
 
     public static void main(String args[]){
+        BaseMessage baseMessage=new BaseMessage();
+
         EventLoopGroup bossGroup=new NioEventLoopGroup();
         EventLoopGroup workerGroup=new NioEventLoopGroup();
         try {

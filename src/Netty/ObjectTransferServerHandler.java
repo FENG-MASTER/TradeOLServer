@@ -1,4 +1,8 @@
+package Netty;
+
 import Message.BaseMessage;
+import Message.impl.MessageHandler;
+import Message.interf.IMessageHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 
@@ -7,21 +11,21 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
  */
 public class ObjectTransferServerHandler extends ChannelInboundHandlerAdapter {
 
+    private IMessageHandler handler=new MessageHandler();
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        //super.channelRead(ctx, msg);
+        //信息接收
 
         if (msg instanceof BaseMessage){
             BaseMessage baseMessage= (BaseMessage) msg;
-            System.out.println(baseMessage.getID());
-            System.out.println(baseMessage.getData());
-
+            handler.handlerMessage(baseMessage);//处理消息
+            System.out.println(baseMessage);
         }else {
 
             System.out.println("??");
         }
-        ctx.writeAndFlush(msg);
+        //ctx.writeAndFlush(msg);//回复
 
     }
 
